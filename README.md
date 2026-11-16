@@ -2,9 +2,9 @@
 
 **William Zhou · Mathematical derivations and NumPy experiments**
 
-A personal study archive connecting number theory, probability, statistics, and machine learning. Each weekly set contains seven problems: two in number theory, one in probability, two in statistics, and two in AI. The computational exercises connect model assumptions and mathematical analysis with parameter estimation, optimization, and evaluation.
+It's my study archive for number theory, probability, statistics, and machine learning. Each weekly set contains seven problems: two in number theory, one in probability, two in statistics, and two in AI. The computational exercises connect model assumptions and mathematical analysis with parameter estimation, optimization, and evaluation.
 
-## Start here
+## Table of Contents
 
 | Interest | Suggested reading | Companion implementation |
 | --- | --- | --- |
