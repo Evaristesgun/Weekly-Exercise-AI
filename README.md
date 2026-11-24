@@ -11,23 +11,22 @@ It's my study archive for number theory, probability, statistics, and machine le
 | **Optimization** | [November 2, Problem 7](11-02-26.pdf): regularized logistic regression, gradient and Hessian derivations, existence of a minimizer, and a Lipschitz bound | [Notebook](11-02-26.ipynb): `loss_grad`, `grad_des`, and `Sgrad_des`; finite-difference and extreme-score checks |
 | **Probability calibration** | [November 9, Problems 6–7](11-09-26.pdf): Gaussian classification with unequal covariances and confidence scaling | [Notebook](11-09-26.ipynb): `fit_gaussian`, `gaussian_score`, `scale_loss_grad`, `fit_scale`, and `calibration_bins` |
 
-In this week's **November 9 notebook** and the result below. For the mathematical arguments, I include them in the corresponding question of the PDF.
-
 ## The Latest Experiment
 
-**Can confidence change without changing the predicted class?**
+**November 16, 2026 · How closely do Gaussian discriminant analysis and Softmax regression agree?**
 
-The November 9 experiment fits a Gaussian classifier to synthetic two-dimensional data, chooses covariance pooling on a validation split, and then fits a positive scalar to its log-odds on a separate calibration split. Positive scaling preserves the decision boundary while changing predicted probabilities.
+I generated three Gaussian classes with a shared covariance matrix. Under this assumption, both models can represent the true class probabilities. I fit both models on the same 300 training cases, using the training means and standard deviations to scale every split. For Softmax, I ran 600 full-gradient updates at each of three penalties (0.001, 0.01, 0.1). The lowest mean log loss on 180 validation cases selected λ = 0.001. I then froze both fits and evaluated them on the same 2,000 fresh test cases.
 
-The notebook's saved outputs on 2,000 test observations are:
+| Model | Test error | Mean test log loss |
+| --- | ---: | ---: |
+| Gaussian discriminant analysis (GDA) | 22.30% | 0.538219 |
+| Softmax regression (λ = 0.001) | 22.80% | 0.541029 |
 
-| Model | Classification error | Mean log loss | Brier loss |
-| --- | ---: | ---: | ---: |
-| Fully pooled covariance baseline | 0.1995 | 0.423790 | 0.136393 |
-| Validation-selected covariance pooling | 0.1960 | 0.368349 | 0.123577 |
-| Selected model after confidence scaling | 0.1960 | 0.369101 | 0.123000 |
+Only GDA was wrong on 8 cases, and only Softmax was wrong on 18. GDA made 10 fewer errors overall, a **0.50 percentage-point** reduction. That falls below my practical threshold of **2 percentage points**.
 
-Here, scaling leaves classification error unchanged, slightly improves Brier loss, and slightly worsens test log loss. Minimizing calibration-sample log loss does not guarantee an improvement on a separate test sample. These are results from one synthetic experiment, not evidence of a universal model ranking.
+The selected Softmax fit had a final training gradient norm of 2.29 × 10⁻¹⁰. On the independent test set, the 95% Hoeffding interval for its error rate was **19.76%–25.84%**, using a radius of √(ln(40) / (2 × 2,000)). Both fitted models can make errors even with accurate parameter estimates because the Gaussian classes overlap.
+
+[November 16 notebook](11-16-26.ipynb) · [Worksheet, Problems 5–7](11-16-26.pdf)
 
 ## Weekly index
 
