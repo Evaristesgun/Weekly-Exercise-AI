@@ -10,6 +10,7 @@ It's my study archive for number theory, probability, statistics, and machine le
 | --- | --- | --- |
 | **Optimization** | [November 2, Problem 7](11-02-26.pdf): regularized logistic regression, gradient and Hessian derivations, existence of a minimizer, and a Lipschitz bound | [Notebook](11-02-26.ipynb): `loss_grad`, `grad_des`, and `Sgrad_des`; finite-difference and extreme-score checks |
 | **Probability calibration** | [November 9, Problems 6–7](11-09-26.pdf): Gaussian classification with unequal covariances and confidence scaling | [Notebook](11-09-26.ipynb): `fit_gaussian`, `gaussian_score`, `scale_loss_grad`, `fit_scale`, and `calibration_bins` |
+| **Multiclass classification** | [November 16, Problems 5–7](11-16-26.pdf) connects shared-covariance Gaussian posteriors to linear Softmax and examines uncertainty after model selection | [Notebook](11-16-26.ipynb) fits both classifiers, selects the Softmax penalty by validation log loss, and compares their predictions on the same test cases |
 
 ## The Latest Experiment
 
@@ -34,3 +35,4 @@ The selected Softmax fit had a final training gradient norm of 2.29 × 10⁻¹�
 | --- | --- | --- | --- |
 | November 2, 2026 | Finite Euler-factor removal; weighted divisibility probabilities; binomial factorial moments; unbiased estimation versus maximum likelihood; Wilson intervals | Shared-covariance Gaussian discriminant analysis; regularized logistic regression; full-batch GD and mini-batch SGD | [PDF](11-02-26.pdf) · [Notebook](11-02-26.ipynb) |
 | November 9, 2026 | Gcd averages and convolution; proper scoring rules; beta–Bernoulli prediction; exact paired comparisons of classifier errors | Class-specific covariance estimation and pooling; confidence scaling by convex one-dimensional optimization; calibration-bin summaries | [PDF](11-09-26.pdf) · [Notebook](11-09-26.ipynb) |
+| November 16, 2026 | Coprime factorizations, boundary convergence of Dirichlet series, categorical covariance, predictive risk for unseen classes, and Hoeffding bounds after model selection | Shared-covariance Gaussian classification, stable Softmax cross-entropy, gradient checks, and validation-based penalty selection | [PDF](11-16-26.pdf) · [Notebook](11-16-26.ipynb) |
